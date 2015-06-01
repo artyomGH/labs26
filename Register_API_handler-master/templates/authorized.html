@@ -1,0 +1,35 @@
+{% extends "index.html"  %}
+
+{% block login %}
+<a href="/logout">LOGOUT</a>
+{% endblock %}
+
+{% block adder %}
+
+<form action="/add" method="post">
+    <td>name of property</td>
+    {{ form.name_property }}
+    <td>serial number</td>
+    {{ form.ser_number }}
+    <td>id obtajenna</td>
+    {{ form.obtajenna }}
+    {{ form.submit }}
+</form>
+
+{% endblock %}
+
+{% block content %}
+ <table>
+{% for method in objects %}
+<tr>
+        <td>{{ method.id }}</td>
+        <td>{{ method.name_property }}</td>
+        <td>{{ method.ser_number }}</td>
+        <td>{{ method.majno.cost_size }}</td>
+        <td><a href="/update/{{ method.id }}">Update</a></td>
+        <td><a href="/delete/{{ method.id }}">Delete</a></td>
+</tr>
+
+{% endfor %}
+</table>
+{% endblock %}

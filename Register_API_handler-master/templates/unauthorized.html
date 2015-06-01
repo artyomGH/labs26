@@ -1,0 +1,22 @@
+{% extends "index.html"  %}
+
+{% block login %}
+<a href="/login">LOGIN WITH GITHUB</a>
+{% endblock %}
+
+{% block adder %}
+{% endblock %}
+
+
+{% block content %}
+ <table>
+{% for method in objects %}
+    <tr>
+        <td>{{ method.id }}</td>
+        <td>{{ method.name_property }}</td>
+        <td>{{ method.ser_number }}</td>
+        <td>{{ method.majno.cost_size }}</td>
+    </tr>
+{% endfor %}
+</table>
+{% endblock %}

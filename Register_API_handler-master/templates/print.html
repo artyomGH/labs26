@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<h1>Register Data</h1>
+
+<h2>Property</h2>
+
+<table>
+
+    <tr>
+        <th>ID</th>
+        <th>Name property</th>
+        <th>Serial number</th>
+        <th>Reason document obtajenna</th>
+
+    </tr>
+
+    {% for method in properties %}
+    <tr>
+        <td>{{ method.id }}</td>
+        <td>{{ method.name_property }}</td>
+        <!-- method.category.name  -->
+        <td>{{ method.ser_number }}</td>
+        <td>{{ method.majno.reason_doc }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h2>Borjnuku</h2>
+
+<table>
+
+    <tr>
+        <th>ID</th>
+        <th>Borjnuk name</th>
+        <th>Suma obtajenna</th>
+    </tr>
+
+    {% for author in borjnuku %}
+    <tr>
+        <td>{{ author.id }}</td>
+        <td>{{ author.name }}</td>
+        <td>{{ author.tel_number }}</td>
+        <td>
+
+            {% for method in author.obtajennas %}
+                {{ method.cost_size }} <br>
+            {% endfor %}
+
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h2>Obtajenna</h2>
+
+<table>
+
+    <tr>
+        <th>ID</th>
+        <th>Reason document</th>
+        <th>Borjnuku obtajenna</th>
+    </tr>
+
+    {% for category in obtajenna %}
+    <tr>
+        <td>{{ category.id }}</td>
+        <td>{{ category.reason_doc }}</td>
+        <td>
+            {% for method in category.borjnuku %}
+                {{ method.name }} <br>
+            {% endfor %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+
+
+</body>
+</html>
